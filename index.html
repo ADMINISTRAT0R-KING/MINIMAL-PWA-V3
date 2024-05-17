@@ -10,10 +10,10 @@
     
   <!-- BROWSER THEME & ICON-->
     <meta name="theme-color" content="#000">
-    <link rel="shortcut icon" type="image/x-icon" href="e.png">
+    <link rel="shortcut icon" type="image/x-icon" href="./e.png">
     
   <!-- FILE CONFIG -->
-    <link rel="manifest" href="manifest.json">
+    <link rel="manifest" href="./manifest.json">
     
     
   </head>
@@ -26,7 +26,7 @@
   <script>
     document.addEventListener("DOMContentLoaded",(e)=>{
       if(navigator.serviceWorker){
-        navigator.serviceWorker.register("sw.js").then((registration)=>{
+        navigator.serviceWorker.register("/sw.js").then((registration)=>{
           
           registration.onupdatefound=(e)=>{
             registration.update().then(()=>{
@@ -42,5 +42,6 @@
         confirm("\nBROWSER DO NOT SUPPORT SERVICE-WORKER!");
       }
     })
+    fetch("./manifest.json");
   </script>
   </html>

@@ -23,25 +23,13 @@
     <h1>PWA-V3</h1>
     
   </body>
-  <script>
-    document.addEventListener("DOMContentLoaded",(e)=>{
-      if(navigator.serviceWorker){
-        navigator.serviceWorker.register("sw.js").then((registration)=>{
-          
-          registration.onupdatefound=(e)=>{
-            registration.update().then(()=>{
-              confirm("\nSERVICE-WORKER UPDATED SUCCESSFULLY");
-            }).catch((err)=>{
-              confirm("\nSERVICE-WORKER UPDATE ERR:- "+err);
-            });
-          }
-        }).catch((err)=>{
-          confirm("\nSERVICE-WORKER REGISTRATION ERROR:- "+registration);
-        })
-      }else{
-        confirm("\nBROWSER DO NOT SUPPORT SERVICE-WORKER!");
-      }
-    })
-    fetch("manifest.json");
+  <script type="text/javascript">
+    if (navigator.serviceWorker != null) {
+      navigator.serviceWorker.register('sw.js')
+      .then(function(registration) {
+        console.log('Registered events at scope: ', registration.scope);
+      });
+    }
+    fetch('./manifest.json');
   </script>
   </html>
